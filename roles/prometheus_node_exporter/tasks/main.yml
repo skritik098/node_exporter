@@ -16,7 +16,7 @@
 - name: Creating the directory
   file:
     state: directory
-    path: "/opt/prometheus/exporters"
+    path: "/opt/Prometheus/exporters"
     mode: '0755'
     group: "{{ groupId }}"
     owner: "{{ userId }}"
@@ -31,7 +31,7 @@
 - name: Copy prometheus node exporter file to /opt/Prometheus/exporters
   copy:
     src: "/tmp/node_exporter-{{ version }}.linux-amd64/node_exporter"
-    dest: "/opt/prometheus/exporters/node_exporter"
+    dest: "/opt/Prometheus/exporters/node_exporter"
     owner: "{{userId}}"
     group: "{{groupId}}"
     remote_src: yes
@@ -39,7 +39,7 @@
 
 - name: Creating the soft link to node_exporter in /usr/bin
   file:
-    src: "/opt/prometheus/exporters/node_exporter"
+    src: "/opt/Prometheus/exporters/node_exporter"
     dest: "/usr/bin/node_exporter"
     state: link
     owner: "{{userId}}"
